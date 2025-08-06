@@ -40,7 +40,7 @@ export const StageDetailModal: React.FC<StageDetailModalProps> = ({
     
     try {
       const { data, error } = await supabase.storage
-        .from('documents')
+        .from('coding-files')
         .download(fileName);
       
       if (error) {

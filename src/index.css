@@ -61,6 +61,10 @@
     /* Professional Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease-out;
+    
+    /* Enhanced Visual Effects */
+    --glow-deloitte: 0 0 30px hsla(var(--deloitte-green), 0.3);
+    --backdrop-blur: blur(12px);
 
     --sidebar-background: 0 0% 98%;
 

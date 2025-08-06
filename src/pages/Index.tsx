@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProcessingStage } from '@/components/ProcessingStage';
 import { StageDetailModal } from '@/components/StageDetailModal';
-import { ProcessingStats } from '@/components/ProcessingStats';
+
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Settings, User, Bell } from 'lucide-react';
@@ -145,31 +145,57 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Processing Stats Widget */}
-      <ProcessingStats
-        currentStage={completedStages + 1}
-        totalStages={5}
-        completedStages={completedStages}
-        processingTime="02:34:15"
-        fileCount={12}
-        errorCount={0}
-      />
 
       {/* Main Content */}
       <main className="pt-16">
-        {/* System Title Section */}
-        <section className="bg-background-light py-16">
-          <div className="max-w-7xl mx-auto px-6 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              勞務費自動化調節表工具
+        {/* Hero Section with Enhanced Visual Design */}
+        <section className="relative bg-gradient-to-br from-background via-background-light to-background py-20 overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-deloitte-green rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-deloitte-green-dark rounded-full blur-3xl"></div>
+          </div>
+          
+          <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div className="inline-flex items-center gap-3 bg-deloitte-green/10 px-6 py-2 rounded-full mb-6">
+              <div className="w-2 h-2 bg-deloitte-green rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-deloitte-green">Deloitte專業級處理平台</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-6xl font-bold text-text-primary mb-6 leading-tight">
+              勞務費自動化
+              <span className="text-deloitte-green">調節表工具</span>
             </h1>
-            <p className="text-lg text-text-secondary mb-2">
+            
+            <p className="text-xl text-text-secondary mb-4 max-w-2xl mx-auto">
               Professional Fee Reconciliation Automation Tool
             </p>
-            <p className="text-base text-text-secondary max-w-3xl mx-auto">
-              企業級勞務費處理與調節表編製工具，提供完整的五階段自動化處理流程，
-              確保財務資料的準確性與合規性，提升處理效率並降低人為錯誤。
+            
+            <p className="text-lg text-text-secondary max-w-4xl mx-auto leading-relaxed">
+              企業級勞務費處理與調節表編製工具展示平台，完整呈現五階段自動化處理流程的專業架構，
+              深度剖析每個環節的技術實現與商業邏輯，為企業提供頂級的財務處理解決方案洞察。
             </p>
+            
+            {/* Progress Visual */}
+            <div className="mt-12 max-w-md mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                {stages.map((stage, index) => (
+                  <div key={stage.number} className="flex items-center">
+                    <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      stage.isCompleted ? 'bg-deloitte-green scale-110' : 'bg-divider'
+                    }`}></div>
+                    {index < stages.length - 1 && (
+                      <div className={`w-8 h-0.5 transition-colors duration-300 ${
+                        stage.isCompleted ? 'bg-deloitte-green' : 'bg-divider'
+                      }`}></div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm text-text-secondary">
+                {completedStages} / {stages.length} 階段流程展示
+              </p>
+            </div>
           </div>
         </section>
 
