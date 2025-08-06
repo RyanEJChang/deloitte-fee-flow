@@ -9,8 +9,8 @@ interface ProcessingStageProps {
   title: string;
   englishTitle: string;
   description: string[];
-  inputFiles: number;
-  outputFiles: number;
+  inputFiles: string[] | number;
+  outputFiles: string[] | number;
   onViewDetails: () => void;
   isConnected?: boolean;
 }
@@ -64,7 +64,7 @@ export const ProcessingStage: React.FC<ProcessingStageProps> = ({
         <div className="mb-4">
           <p className="text-xs font-medium text-text-primary mb-2">📊 處理統計</p>
           <p className="text-xs text-text-secondary">
-            輸入：{inputFiles}個檔案 | 輸出：{outputFiles}個檔案
+            輸入：{Array.isArray(inputFiles) ? inputFiles.length : inputFiles}個檔案 | 輸出：{Array.isArray(outputFiles) ? outputFiles.length : outputFiles}個檔案
           </p>
         </div>
 

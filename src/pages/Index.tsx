@@ -13,64 +13,94 @@ const Index = () => {
 
   const stages = [
     {
+      id: 1,
       number: 1,
       title: '供應商WHT/GUI分類處理',
       englishTitle: 'Vendor Classification Processing',
       description: [
-        '自動供應商分類',
-        '稅務處理方式判定',
-        '勞務費明細提取'
+        '• 自動供應商分類',
+        '• 稅務處理方式判定',
+        '• 勞務費明細提取'
       ],
-      inputFiles: 2,
-      outputFiles: 2
+      inputFiles: ['匯入_總明細.xlsx', '匯入_廠商名單2.xlsx'],
+      outputFiles: ['結果_總明細_GUI.xlsx', '結果_總明細_GUI_勞務費明細表.xlsx'],
+      files: {
+        simple: 'coding_1_simple.md',
+        prompt: 'coding_1_prompt.md',
+        code: 'coding_1.py'
+      }
     },
     {
+      id: 2,
       number: 2,
       title: '期初資料調節處理',
       englishTitle: 'Initial Data Reconciliation',
       description: [
-        '期初餘額驗證',
-        '歷史資料整合',
-        '基準點建立'
+        '• 期初餘額驗證',
+        '• 歷史資料整合',
+        '• 基準點建立'
       ],
-      inputFiles: 3,
-      outputFiles: 2
+      inputFiles: ['結果_總明細_GUI.xlsx', '期初資料.xlsx', '歷史記錄.xlsx'],
+      outputFiles: ['調節後期初資料.xlsx', '驗證報告.xlsx'],
+      files: {
+        simple: 'coding_2_simple.md',
+        prompt: 'coding_2_prompt.md',
+        code: 'coding_2.py'
+      }
     },
     {
+      id: 3,
       number: 3,
       title: '六大分類費用處理',
       englishTitle: 'Six-Category Expense Processing',
       description: [
-        '費用分類定義',
-        '自動歸類邏輯',
-        '分類準確性驗證'
+        '• 費用分類定義',
+        '• 自動歸類邏輯',
+        '• 分類準確性驗證'
       ],
-      inputFiles: 2,
-      outputFiles: 3
+      inputFiles: ['結果_總明細_GUI_勞務費明細表.xlsx', '分類規則.xlsx'],
+      outputFiles: ['六大分類結果.xlsx', '分類報告.xlsx', '異常清單.xlsx'],
+      files: {
+        simple: 'coding_3_simple.md',
+        prompt: 'coding_3_prompt.md',
+        code: 'coding_3.py'
+      }
     },
     {
+      id: 4,
       number: 4,
       title: '費用重新分配邏輯',
       englishTitle: 'Cost Reallocation Logic',
       description: [
-        '分配規則設定',
-        '成本歸屬調整',
-        '分配結果驗證'
+        '• 分配規則設定',
+        '• 成本歸屬調整',
+        '• 分配結果驗證'
       ],
-      inputFiles: 3,
-      outputFiles: 2
+      inputFiles: ['結果_總明細_GUI.xlsx', '分配規則.xlsx', '部門資料.xlsx'],
+      outputFiles: ['重分配結果.xlsx', '分配明細.xlsx'],
+      files: {
+        simple: 'coding_4_simple.md',
+        prompt: 'coding_4_prompt.md',
+        code: 'coding_4.py'
+      }
     },
     {
+      id: 5,
       number: 5,
       title: '調節表自動生成',
       englishTitle: 'Reconciliation Table Generation',
       description: [
-        '最終報表產出',
-        '差異分析計算',
-        '品質檢核報告'
+        '• 最終報表產出',
+        '• 差異分析計算',
+        '• 品質檢核報告'
       ],
-      inputFiles: 4,
-      outputFiles: 1
+      inputFiles: ['調節後期初資料.xlsx', '六大分類結果.xlsx', '重分配結果.xlsx', '其他調整.xlsx'],
+      outputFiles: ['最終調節表.xlsx'],
+      files: {
+        simple: 'coding_5_simple.md',
+        prompt: 'coding_5_prompt.md',
+        code: 'coding_5.py'
+      }
     }
   ];
 
