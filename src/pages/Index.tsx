@@ -21,7 +21,6 @@ const Index = () => {
         '稅務處理方式判定',
         '勞務費明細提取'
       ],
-      isCompleted: true,
       inputFiles: 2,
       outputFiles: 2
     },
@@ -34,7 +33,6 @@ const Index = () => {
         '歷史資料整合',
         '基準點建立'
       ],
-      isCompleted: true,
       inputFiles: 3,
       outputFiles: 2
     },
@@ -47,7 +45,6 @@ const Index = () => {
         '自動歸類邏輯',
         '分類準確性驗證'
       ],
-      isCompleted: true,
       inputFiles: 2,
       outputFiles: 3
     },
@@ -60,7 +57,6 @@ const Index = () => {
         '成本歸屬調整',
         '分配結果驗證'
       ],
-      isCompleted: false,
       inputFiles: 3,
       outputFiles: 2
     },
@@ -73,7 +69,6 @@ const Index = () => {
         '差異分析計算',
         '品質檢核報告'
       ],
-      isCompleted: false,
       inputFiles: 4,
       outputFiles: 1
     }
@@ -87,7 +82,7 @@ const Index = () => {
     }
   };
 
-  const completedStages = stages.filter(stage => stage.isCompleted).length;
+  
 
   return (
     <div className="min-h-screen bg-background">
@@ -107,31 +102,14 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Center: Progress Indicator */}
-          <div className="hidden lg:flex items-center gap-2">
-            {stages.map((stage) => (
-              <div key={stage.number} className="flex items-center">
-                <div 
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-colors ${
-                    stage.isCompleted 
-                      ? 'bg-deloitte-green text-white' 
-                      : 'bg-background-light text-text-secondary'
-                  }`}
-                >
-                  {stage.number}
-                </div>
-                {stage.number < stages.length && (
-                  <div className={`w-6 h-0.5 ${stage.isCompleted ? 'bg-deloitte-green' : 'bg-divider'}`} />
-                )}
-              </div>
-            ))}
+          {/* Center: System Info */}
+          <div className="hidden lg:block">
+            <p className="text-sm font-medium text-text-primary">五階段處理流程展示</p>
+            <p className="text-xs text-text-secondary">Professional Processing Workflow</p>
           </div>
 
-          {/* Right: System Status and User Menu */}
+          {/* Right: User Menu */}
           <div className="flex items-center gap-3">
-            <Badge className="hidden md:inline-flex bg-deloitte-green text-white">
-              系統正常運行
-            </Badge>
             <Button variant="ghost" size="sm" className="text-text-secondary hover:text-text-primary">
               <Bell className="w-4 h-4" />
             </Button>
@@ -176,26 +154,6 @@ const Index = () => {
               深度剖析每個環節的技術實現與商業邏輯，為企業提供頂級的財務處理解決方案洞察。
             </p>
             
-            {/* Progress Visual */}
-            <div className="mt-12 max-w-md mx-auto">
-              <div className="flex items-center justify-center gap-2 mb-4">
-                {stages.map((stage, index) => (
-                  <div key={stage.number} className="flex items-center">
-                    <div className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      stage.isCompleted ? 'bg-deloitte-green scale-110' : 'bg-divider'
-                    }`}></div>
-                    {index < stages.length - 1 && (
-                      <div className={`w-8 h-0.5 transition-colors duration-300 ${
-                        stage.isCompleted ? 'bg-deloitte-green' : 'bg-divider'
-                      }`}></div>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-text-secondary">
-                {completedStages} / {stages.length} 階段流程展示
-              </p>
-            </div>
           </div>
         </section>
 
@@ -222,7 +180,6 @@ const Index = () => {
                     title={stage.title}
                     englishTitle={stage.englishTitle}
                     description={stage.description}
-                    isCompleted={stage.isCompleted}
                     inputFiles={stage.inputFiles}
                     outputFiles={stage.outputFiles}
                     onViewDetails={() => handleStageClick(stage.number)}
@@ -240,7 +197,6 @@ const Index = () => {
                     title={stage.title}
                     englishTitle={stage.englishTitle}
                     description={stage.description}
-                    isCompleted={stage.isCompleted}
                     inputFiles={stage.inputFiles}
                     outputFiles={stage.outputFiles}
                     onViewDetails={() => handleStageClick(stage.number)}

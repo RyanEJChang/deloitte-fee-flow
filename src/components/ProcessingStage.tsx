@@ -9,7 +9,6 @@ interface ProcessingStageProps {
   title: string;
   englishTitle: string;
   description: string[];
-  isCompleted: boolean;
   inputFiles: number;
   outputFiles: number;
   onViewDetails: () => void;
@@ -21,7 +20,6 @@ export const ProcessingStage: React.FC<ProcessingStageProps> = ({
   title,
   englishTitle,
   description,
-  isCompleted,
   inputFiles,
   outputFiles,
   onViewDetails,
@@ -37,12 +35,6 @@ export const ProcessingStage: React.FC<ProcessingStageProps> = ({
               STAGE {stageNumber.toString().padStart(2, '0')}
             </span>
           </div>
-          {isCompleted && (
-            <Badge className="bg-deloitte-green text-white hover:bg-deloitte-green-dark">
-              <CheckCircle className="w-3 h-3 mr-1" />
-              完成
-            </Badge>
-          )}
         </div>
 
         {/* Stage Title */}
