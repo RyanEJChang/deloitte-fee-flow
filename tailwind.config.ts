@@ -24,6 +24,16 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Deloitte Brand Colors
+				'deloitte-green': 'hsl(var(--deloitte-green))',
+				'deloitte-green-dark': 'hsl(var(--deloitte-green-dark))',
+				'deloitte-red': 'hsl(var(--deloitte-red))',
+				'text-primary': 'hsl(var(--text-primary))',
+				'text-secondary': 'hsl(var(--text-secondary))',
+				'background-light': 'hsl(var(--background-light))',
+				'divider': 'hsl(var(--divider))',
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

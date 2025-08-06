@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Deloitte Brand Design System - Professional Enterprise Colors */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    /* Deloitte Brand Palette */
+    --deloitte-green: 86 50% 44%;         /* #86BC25 - Primary brand color */
+    --deloitte-green-dark: 85 61% 33%;    /* #5F8A1F - Deep green */
+    --deloitte-red: 349 80% 54%;          /* #E31937 - Alert/accent red */
+    
+    /* Professional Gray Scale */
+    --text-primary: 0 0% 17%;             /* #2C2C2C - Deep gray text */
+    --text-secondary: 0 0% 45%;           /* #747474 - Secondary text */
+    --background-light: 0 0% 95%;         /* #F2F2F2 - Light background */
+    --divider: 0 0% 85%;                  /* #D9D9D9 - Divider lines */
+    
+    /* Design System Tokens */
+    --background: 0 0% 100%;              /* Pure white */
+    --foreground: 0 0% 17%;               /* Text primary */
+    
+    --card: 0 0% 100%;                    /* Card background */
+    --card-foreground: 0 0% 17%;          /* Card text */
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 0 0% 17%;
+    
+    --primary: 86 50% 44%;                /* Deloitte green */
+    --primary-foreground: 0 0% 100%;      /* White on green */
+    
+    --secondary: 0 0% 95%;                /* Light gray background */
+    --secondary-foreground: 0 0% 17%;     /* Dark text on light */
+    
+    --muted: 0 0% 95%;                    /* Muted background */
+    --muted-foreground: 0 0% 45%;         /* Muted text */
+    
+    --accent: 86 50% 44%;                 /* Deloitte green accent */
+    --accent-foreground: 0 0% 100%;       /* White on accent */
+    
+    --destructive: 349 80% 54%;           /* Deloitte red */
+    --destructive-foreground: 0 0% 100%;  /* White on red */
+    
+    --border: 0 0% 85%;                   /* Divider color */
+    --input: 0 0% 85%;                    /* Input border */
+    --ring: 86 50% 44%;                   /* Focus ring - green */
+    
+    /* Professional Design Tokens */
+    --radius: 0.25rem;                    /* Smaller radius for professional look */
+    
+    /* Deloitte Gradients */
+    --gradient-deloitte: linear-gradient(135deg, hsl(var(--deloitte-green)), hsl(var(--deloitte-green-dark)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--background-light)));
+    
+    /* Professional Shadows */
+    --shadow-card: 0 2px 8px hsla(0, 0%, 0%, 0.08);
+    --shadow-elevated: 0 4px 20px hsla(0, 0%, 0%, 0.12);
+    --shadow-focus: 0 0 0 2px hsla(var(--deloitte-green), 0.2);
+    
+    /* Professional Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
