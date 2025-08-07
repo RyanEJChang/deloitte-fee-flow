@@ -18,9 +18,9 @@ const Index = () => {
       title: '供應商WHT/GUI分類處理',
       englishTitle: 'Vendor Classification Processing',
       description: [
+        '• 初步進行檔案分類與標記',
         '• 自動供應商分類',
-        '• 稅務處理方式判定',
-        '• 勞務費明細提取'
+        '• 稅務處理方式判定'
       ],
       inputFiles: ['匯入_總明細.xlsx', '匯入_廠商名單2.xlsx'],
       outputFiles: ['結果_總明細_GUI.xlsx', '結果_總明細_GUI_勞務費明細表.xlsx'],
@@ -33,15 +33,15 @@ const Index = () => {
     {
       id: 2,
       number: 2,
-      title: '期初資料調節處理',
-      englishTitle: 'Initial Data Reconciliation',
+      title: '期初應付明細分類處理',
+      englishTitle: 'Initial Payables Classification',
       description: [
-        '• 期初餘額驗證',
-        '• 歷史資料整合',
-        '• 基準點建立'
+        '• 產出期初應付勞務費調節項',
+        '• 期初應付關係人分類',
+        '• 期末應付關係人識別'
       ],
-      inputFiles: ['結果_總明細_GUI.xlsx', '期初資料.xlsx', '歷史記錄.xlsx'],
-      outputFiles: ['調節後期初資料.xlsx', '驗證報告.xlsx'],
+      inputFiles: ['匯入_期初應付明細.xlsx', '結果_總明細_GUI.xlsx'],
+      outputFiles: ['結果_期初應付明細.xlsx'],
       files: {
         simple: 'coding_2_simple.md',
         prompt: 'coding_2_prompt.md',
@@ -51,15 +51,25 @@ const Index = () => {
     {
       id: 3,
       number: 3,
-      title: '六大分類費用處理',
-      englishTitle: 'Six-Category Expense Processing',
+      title: '勞務費六大分類處理',
+      englishTitle: 'Professional Fee Classification',
       description: [
-        '• 費用分類定義',
-        '• 自動歸類邏輯',
-        '• 分類準確性驗證'
+        '• 期末應付勞務費分類',
+        '• 統一發票與扣繳申報處理',
+        '• 上期勞務費本期申報識別'
       ],
-      inputFiles: ['結果_總明細_GUI_勞務費明細表.xlsx', '分類規則.xlsx'],
-      outputFiles: ['六大分類結果.xlsx', '分類報告.xlsx', '異常清單.xlsx'],
+      inputFiles: [
+        '結果_總明細_GUI.xlsx',
+        '結果_總明細_GUI_勞務費明細表.xlsx',
+        '結果_期初應付明細.xlsx',
+        '匯入_執行業務所得申報明細.xlsx',
+        '匯入_其他所得等申報明細.xlsx',
+        '匯入_其他應付款Leadsheet及科餘表.xlsx'
+      ],
+      outputFiles: [
+        '分類後_結果_總明細_GUI_勞務費明細表.xlsx',
+        '結果_帳列上期勞務費本期扣繳申報數.xlsx'
+      ],
       files: {
         simple: 'coding_3_simple.md',
         prompt: 'coding_3_prompt.md',
@@ -69,15 +79,15 @@ const Index = () => {
     {
       id: 4,
       number: 4,
-      title: '費用重新分配邏輯',
-      englishTitle: 'Cost Reallocation Logic',
+      title: '薪資相關費用重分類標記',
+      englishTitle: 'Salary-Related Expense Reclassification',
       description: [
-        '• 分配規則設定',
-        '• 成本歸屬調整',
-        '• 分配結果驗證'
+        '• 帳列薪資支出識別',
+        '• 保險費與其他費用分類',
+        '• 薪資相關費用標記'
       ],
-      inputFiles: ['結果_總明細_GUI.xlsx', '分配規則.xlsx', '部門資料.xlsx'],
-      outputFiles: ['重分配結果.xlsx', '分配明細.xlsx'],
+      inputFiles: ['結果_總明細_GUI.xlsx'],
+      outputFiles: ['結果_薪資相關費用標記明細.xlsx'],
       files: {
         simple: 'coding_4_simple.md',
         prompt: 'coding_4_prompt.md',
@@ -87,15 +97,21 @@ const Index = () => {
     {
       id: 5,
       number: 5,
-      title: '調節表自動生成',
-      englishTitle: 'Reconciliation Table Generation',
+      title: '勞務費調節表編製',
+      englishTitle: 'Professional Fee Reconciliation Table',
       description: [
-        '• 最終報表產出',
-        '• 差異分析計算',
-        '• 品質檢核報告'
+        '• 編列完整調節表',
+        '• 確保與卡控金額一致',
+        '• 最終品質檢核'
       ],
-      inputFiles: ['調節後期初資料.xlsx', '六大分類結果.xlsx', '重分配結果.xlsx', '其他調整.xlsx'],
-      outputFiles: ['最終調節表.xlsx'],
+      inputFiles: [
+        '分類後_結果_總明細_GUI_勞務費明細表.xlsx',
+        '結果_期初應付明細.xlsx',
+        '結果_薪資相關費用標記明細.xlsx',
+        '結果_帳列上期勞務費本期扣繳申報數.xlsx',
+        '匯入_對帳表.xlsx'
+      ],
+      outputFiles: ['結果_勞務費調節表.xlsx'],
       files: {
         simple: 'coding_5_simple.md',
         prompt: 'coding_5_prompt.md',
